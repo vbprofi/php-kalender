@@ -24,7 +24,7 @@ echo '>' . $i . '</option>';
 $i++;
 }
 echo '</select>:<select name="start_m">';
-$i='1';
+$i='0';
 while($i<=59){
 echo '<option value=' . $i . '';
 if($i==$start_m){
@@ -44,7 +44,7 @@ echo '>' . $i . '</option>';
 $i++;
 }
 echo '</select>:<select name="end_m">';
-$i='1';
+$i='0';
 while($i<=59){
 echo '<option value=' . $i . '';
 if($i==$end_m){
