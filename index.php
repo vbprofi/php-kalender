@@ -42,10 +42,14 @@ $trans = array(6, 0, 1, 2, 3, 4, 5);
 
 echo '<link rel="stylesheet" type="text/css" href="style.css" />';
 
-echo '<a href="index.php?display=day&year=' . $today_year . '&month=' . $today_month . '&day=' . $today_day . '">Heute</a> ';
+
+echo '<a href="index.php?display=day&year=' . $today_year . '&month=' . $today_month . '&day=' . $today_day . '">Heute</a>';
+
+echo "&nbsp;";
+
 echo '<a href="index.php?display=month&year=';
 echo $year-1;
-echo '&month=' . $month . '&day=' . $day . '">Jahr zurück</a> ';
+echo '&month=' . $month . '&day=' . $day . '">← Jahr</a> ';
 
 echo '<a href="index.php?display=month&year=';
 if($month==1){
@@ -55,9 +59,13 @@ echo $year . '&month=';
 echo $month-1;
 echo '&';
 }
-echo 'day=' . $day . '">Monat zurück</a> ';
+echo 'day=' . $day . '">← Monat, </a> ';
 
-echo '<a href="index.php?display=month&year=' . $year . '&month=1&day=' . $day . '">Jan</a> <a href="index.php?display=month&year=' . $year . '&month=2&day=' . $day . '">Feb</a> <a href="index.php?display=month&year=' . $year . '&month=3&day=' . $day . '">Mär</a> <a href="index.php?display=month&year=' . $year . '&month=4&day=' . $day . '">Apr</a> <a href="index.php?display=month&year=' . $year . '&month=5&day=' . $day . '">Mai</a> <a href="index.php?display=month&year=' . $year . '&month=6&day=' . $day . '">Jun</a> <a href="index.php?display=month&year=' . $year . '&month=7&day=' . $day . '">Jul</a> <a href="index.php?display=month&year=' . $year . '&month=8&day=' . $day . '">Aug</a> <a href="index.php?display=month&year=' . $year . '&month=9&day=' . $day . '">Sep</a> <a href="index.php?display=month&year=' . $year . '&month=10&day=' . $day . '">Okt</a> <a href="index.php?display=month&year=' . $year . '&month=11&day=' . $day . '">Nov</a> <a href="index.php?display=month&year=' . $year . '&month=12&day=' . $day . '">Dez</a> <a href="index.php?display=month&year=';
+echo "&nbsp;|&nbsp;";
+
+echo '<a href="index.php?display=month&year=' . $year . '&month=1&day=' . $day . '">Jan</a> <a href="index.php?display=month&year=' . $year . '&month=2&day=' . $day . '">Feb</a> <a href="index.php?display=month&year=' . $year . '&month=3&day=' . $day . '">Mär</a> <a href="index.php?display=month&year=' . $year . '&month=4&day=' . $day . '">Apr</a> <a href="index.php?display=month&year=' . $year . '&month=5&day=' . $day . '">Mai</a> <a href="index.php?display=month&year=' . $year . '&month=6&day=' . $day . '">Jun</a> <a href="index.php?display=month&year=' . $year . '&month=7&day=' . $day . '">Jul</a> <a href="index.php?display=month&year=' . $year . '&month=8&day=' . $day . '">Aug</a> <a href="index.php?display=month&year=' . $year . '&month=9&day=' . $day . '">Sep</a> <a href="index.php?display=month&year=' . $year . '&month=10&day=' . $day . '">Okt</a> <a href="index.php?display=month&year=' . $year . '&month=11&day=' . $day . '">Nov</a> <a href="index.php?display=month&year=' . $year . '&month=12&day=' . $day . '">Dez</a> | ';
+
+echo ' <a href="index.php?display=month&year=';
 if($month==12){
 echo $year+1;
 echo '&month=1&day=';
@@ -66,14 +74,14 @@ echo $year . '&month=';
 echo $month+1;
 echo '&day=';
 }
-echo $day . '">Monat vor</a> <a href="index.php?display=month&year=';
+echo $day . '">Monat →</a> <a href="index.php?display=month&year=';
 echo $year+1;
-echo '&month=' . $month . '&day=' . $day . '">Jahr vor</a></center></br></br>';
+echo '&month=' . $month . '&day=' . $day . '">Jahr →</a></center></br></br>';
 
 
 //Tagesübersicht
 if($display=='day'){
-echo '<br><a href="index.php?display=month&month=' . $month .'&year='. $year .'">';
+echo '<br><a href="index.php?display=month&month=' . $month .'&year='. $year .'">↑ ';
 echo wochentag($year.'-'.$month.'-'.$day).', &nbsp;'. $day . '. ';
 echo $monthNames[(int)$month-1].' '.$year;
 echo "</a><br>";
@@ -168,7 +176,7 @@ continue;
 }
 
 if( mktime(0, 0, 0, $month, $i, $year) == mktime(0, 0, 0, date('m'), date('d'), date('Y')) ) {
-echo '<td width="100" class="heute" title="heutiges Datum"><a href="index.php?display=day&year=' . $year . '&month=' . $month . '&day=' . $i . '"><header>'.$i.'</header></a></td>';
+echo '<td width="100" class="heute" title="heutiges Datum"><a href="index.php?display=day&year=' . $year . '&month=' . $month . '&day=' . $i . '"><b>⇒ '.$i.' ⇐</b></a></td>';
 } else {
 echo '<td width="100" class="day"><a href="index.php?display=day&year=' . $year . '&month=' . $month . '&day=' . $i . '">'.$i.'</a><table width="100%" height="100%"><tr><td class="date">';
 $result=$mysqli->query("select * from events where Year=$year and Month=$month and Day=$i");
