@@ -4,9 +4,9 @@ $dbname = "kalender";
 //Host
 $dbhost = "localhost";
 //Benutzer
-$dbuser = "root";
+$dbuser = "admin";
 //Passwort
-$dbpass = "";
+$dbpass = "test";
 
 $error = "";
 
