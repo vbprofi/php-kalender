@@ -3,6 +3,16 @@ include('db.php');
 echo "<br>";
 $sql = "";
 
+$sql = "create database kalender";
+$dbct = $mysqli->query($sql);
+if($dbct)
+echo "kalender Datenbank erfolgreich angelegt.";
+else
+echo "Fehler: Datenbank kalender wurde nicht angelegt.";
+
+$dbct = null;
+echo "<br>";
+
 $sql = "CREATE TABLE Events
 (
 Id int NOT NULL AUTO_INCREMENT,
